@@ -1,0 +1,56 @@
+
+<div class="container aling-items-center text-center bg-light">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" >
+        <form  autocomplete="off" class="form-control"> 
+            
+            <label for="nombre" class="form-label">Nombre</label>
+                <input  [(ngModel)]="user_info.nombre" [ngModelOptions]="{standalone:true}" type="text" class="form-control" required='ngModel' placeholder="Digite su nombre completo...">
+                 <br>
+            <label for="telefono" class="form-label">Telefono</label>
+                <input [(ngModel)]="user_info.telefono" [ngModelOptions]="{standalone:true}" type="number" class="form-control" required  placeholder="Digite su telefono sin espacios...">
+                 <br>
+            <label for="email" class="form-label">Correo electronico</label>
+                <input [(ngModel)]="user_info.email" [ngModelOptions]="{standalone:true}" type="email" class="form-control" required placeholder="Digite su correo electronico...">
+                 <br>
+            <label for="mensaje" class="form-label">Código del producto/nombre del prodeucto</label>
+                <input [(ngModel)]="user_info.mensaje" [ngModelOptions]="{standalone:true}" type="text" class="form-control"  required  placeholder="Digite su comentario..">     
+                 <br> 
+                <button (click)="addTask()" type="button" class="btn btn-primary btn-block">Enviar</button>&nbsp;
+                <button (click)="editar()" type="button" class="btn btn-warning btn-block">Editar</button>
+                
+              
+        </form> 
+    </div>
+    <br>
+     
+    <div>
+        <table class="table table-basic table-basic" >
+          <thead>
+            <tr>
+            <th>ID</th> 
+            <th>Nombre</th>   
+            <th>Telefono</th>  
+            <th>Correo</th>  
+            <th>Código del producto</th>
+            <th>Opcion</th>
+            </tr>
+          </thead> 
+          
+        <tbody>
+            <tr *ngFor="let item of lstuser; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.nombre}}</td>
+              <td>{{item.telefono}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.mensaje}}</td>
+              <td><button (click)="doDelete(i)" class="btn btn-danger btr-sm">Eliminar</button>&nbsp;
+              <td><button (click)="edit(item)" class="btn btn-warning btr-sm">Editar</button> 
+              
+            </tr>
+        </tbody>
+
+        
+
+        </table>
+    </div>
+</div>
